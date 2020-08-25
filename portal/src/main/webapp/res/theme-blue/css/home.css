@@ -1,0 +1,101 @@
+/********** 首页 **********/
+.hide{ display:none;}
+.main{ font-family:"微软雅黑"; overflow:hidden;}
+.l_boxWrap {float: left;width: 570px;}
+.r_boxWrap {float: left;width: 400px;margin-left: 10px;}
+.abox{ }
+.tbox{ }
+.wbox{ }
+.bbox { position: relative;min-height: 75px;}
+.nbox { position: relative;}
+.box{ width:100%; margin-bottom:15px;}
+.box .title{ margin-bottom:5px; font-size:16px; color:#333; background-color: #feede7;padding: 3px 5px 3px 10px;}
+.box .title a{ float:right; margin-top:2px; font-size:12px; color:#999;}
+.box .title a:hover{ color:#f82936;}
+
+********首页-新闻**********
+.nbox .news-slider li {position: relative;height: 270px;cursor: pointer;}
+.nbox .news-slider li img {max-height: 270px;}
+.nbox .news-slider li span {position: relative;bottom: 40px;color:#fff;font-size: 14px;padding-left: 6px;}
+.nbox .next{top: 50%;}
+.nbox .prev{top: 50%;}
+.nbox .unslider-nav {bottom: 2px;margin: 0;position: absolute;right: 0;top: auto;z-index: 3;}
+
+********** 首页-天气状况 **********
+.wbox .cont{ padding:5px; height:270px; background:#fafafa; border-radius:5px;}
+.box .title a .refresh{ display:block; float:left; margin-right:2px; width:16px; height:18px; background:url(../images/icon_images.png) 0 0 no-repeat;}
+.box .title a:hover .refresh{background:url(../images/icon_images.png) 0 -22px no-repeat;}
+.cont .reg_time,.cont .weather,.cont .remind{ padding:0 10px;}
+.cont .reg_time{ height:36px; line-height:36px;}
+.cont .reg_time .region{ float:left; color:#666; font-size:24px;}
+.cont .reg_time .date{ float:left;margin-left:10px; color:#999; font-size:14px;}
+.cont .reg_time .date span{ margin-left:3px;}
+.cont .weather{ margin:10px 0;}
+.cont .weather .left{ display:block; width:120px; border-right:1px dashed #d9d9d9; text-align:center; font-size:14px; color:#666;}
+.cont .weather .left .weathimg{ margin-bottom:10px;}
+.cont .weather .left p{ line-height:22px;}
+.cont .weather .right{ padding-left:18px; width:220px; text-align:left;}
+.cont .weather .right .lwrap{ position:relative;}
+.cont .weather .right .lnum{ display:inline-block;font-size:45px; font-family:Arial; color:#666;}
+.cont .weather .right .level1,.cont .weather .right .level2,.cont .weather .right .level3,.cont .weather .right .level4,.cont .weather .right .level5,.cont .weather .right .level6{ position:absolute; display:inline-block;left:94px; top:28px; padding:0 10px; height:25px; line-height:25px; background:#68cb00; color:#fff; text-align:center;}
+.cont .weather .right .level2{ background:#f7e300;}
+.cont .weather .right .level3{ background:#fb890e;}
+.cont .weather .right .level4{ background:#df2c00;}
+.cont .weather .right .level5{ background:#b514bb;}
+.cont .weather .right .level6{ background:#6e0474;}
+.cont .weather .right p{ font-size:14px; color:#666;}
+.cont .remind{ padding-left:30px; line-height:24px; font-size:14px; color:#999; background:url(../images/icon_remind.png) 10px 0 no-repeat;}
+.cont .loading{ position:absolute; z-index:2;}
+
+********** 首页-系统公告 **********
+.newList li{ padding:0 5px 0 0; height:36px; line-height:36px; font-size:16px;}
+.newList li a{ float:left; padding-left:12px; width:340px; color:#333; font-size: 14px;background:url(../images/icon_dot.png) 2px 17px no-repeat; overflow:hidden; text-overflow:ellipsis;white-space:nowrap;}
+.newList li a:hover{ color:#c71e21;}
+.newList li .auther{ float:left; padding-left:10px; width:90px; font-size:14px; color:#666;overflow:hidden; text-overflow:ellipsis;white-space:nowrap;}
+.newList li span{ float:right; color:#888; font-size:12px;}
+.newList li span .fujian{ display:block; float:left; margin-top:15px; margin-right:20px; width:7px; height:12px; background:url(../images/icon_images.png) 0 -62px no-repeat; cursor:pointer;}
+.even{ background-color:#fff;}
+.odd{ background-color:#fafafa;}
+更多公告
+.wrapmy { padding:0 15px 0 10px; }
+.wrapmy  a{ float:left;  color:#333; }
+.wrapmy  a:hover{ color:#c71e21;}
+.stick{float:left;margin-top:12px;margin-right:4px;width:16px;height:16px;background:url(../../images/bulletin/stick.png);}
+
+********* 首页-我的应用 *********
+.abox .cont{ padding:5px; min-height:113px; background:#fafafa; border-radius:5px;}
+.box .cont .appList li{ float:left; margin:5px; width:103px; height:103px;}
+.appList li a{ display:block; width:100%; height:100%; border:1px solid #ebebeb;}
+.appList li a.app_icon_k{ border:1px dashed #ccc;}
+.appList li a:hover{ border-color:#f0840e;}
+.appList li a.app_icon_k:hover{border-color:#ccc; cursor:default;}
+.appList li a .app_icon{ position:relative; width:100%; height:72px; padding-top:5px;}
+
+.appList li a .app_icon .tips{ position:absolute; top:12px; left:75px;}
+.appList li a .app_icon .lf_bg{ display:block; float:left; width:8px; height:19px; background:url(../images/tip.png) 0 0 no-repeat;}
+.appList li a .app_icon .num{ float:left; padding-right:8px; height:19px;line-height:19px; background:url(../images/tip.png) right 0 no-repeat; color:#fff;}
+
+.appList li a .app_icon i{ display:block; width:66px; height:66px; margin:0 auto;}
+.appList li a .app_icon i.app1{ background:url(../images/icon_app1.png) no-repeat;}
+.appList li a .app_icon i.app2{ background:url(../images/icon_app2.png) no-repeat;}
+.appList li a .app_icon i.app3{ background:url(../images/icon_app3.png) no-repeat;}
+.appList li a .app_icon i.app4{ background:url(../images/icon_app4.png) no-repeat;}
+.appList li a .app_icon i.app5{ background:url(../images/icon_app5.png) no-repeat;}
+.appList li a .app_icon i.app6{ background:url(../images/icon_app6.png) no-repeat;}
+.appList li a .app_icon i.app7{ background:url(../images/icon_app7.png) no-repeat;}
+.appList li a .app_icon i.app8{ background:url(../images/icon_app8.png) no-repeat;}
+.appList li a .app_name{ height:26px; line-height:26px; text-align:center; background:#e6e6e6; color:#333; font-size:13px;}
+
+********* 首页-我的待办 *********
+.tbox .cont{ padding:5px; min-height:45px; background:#fafafa; border-radius:5px;}
+.tbox .wrapModule li {height: 40px;line-height: 40px;font-size: 14px;border-bottom: 1px dotted #ccc;}
+.tbox .wrapModule li:last-child {border: none;}
+.tbox .wrapsys {display:inline-block;vertical-align: middle;width: 100px;color: #666;font-size: 12px;}
+.tbox .wrapsys img {width: 24px;vertical-align: middle;}
+.tbox .wrapsys span {vertical-align: middle;}
+.tbox .wrapModule {display:inline-block;vertical-align: middle;}
+.tbox .wrapimg {width: 30px;display:inline-block;}
+.tbox .module {float: left;overflow: hidden;text-decoration: underline;text-overflow: ellipsis;white-space: nowrap;width: 400px;color: #007bd7;}
+.tbox .num {background-color: #fa6567;border-radius: 10px;color: #fff;display: inline-block;font-size: 12px;height: 18px;line-height: 18px;margin-left: 10px;text-align: center;width: 24px;padding: 0 2px;}
+.tbox .cont>div {border-bottom: 1px dashed #ccc;}
+.tbox .cont>div:last-child {border-bottom: none;}

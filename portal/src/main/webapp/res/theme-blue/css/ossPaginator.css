@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* 分页 */
+.page{margin:25px auto; color:#727171;}
+.page button{ padding:3px 8px; background:#fff; border:1px solid #dcdcdc; color:#727171; margin:0 2px;}
+.page button:hover,.page button.on{ background:#0085d0; color:#fff; border-color:#0085d0; cursor:pointer;}
+.totalnum{ line-height:29px; margin:0 5px;color:#727171;}
+.jumpwrap{ margin-top:5px; height:22px;}
+.jump{ padding-left:5px; margin:0 0 0 5px; border:1px solid #dcdcdc; background:#fff; width:40px; height:20px; line-height:20px; text-align:left; display:block; z-index:3;}
+.pagebtn_wrap{ position:relative; overflow:hidden; margin-top:5px; width:0; height:22px;}
+.page a.pagebtn{ display:block; margin:0; padding:0; position:absolute; right:0; width:50px; height:22px; background:#0085d0; color:#fff; line-height:22px; text-align:center;}
+.page button.disabled{color: #A0A0A0; background:#eee; border-color:#ddd; cursor:default;}
+
+.h30{ height:30px;}

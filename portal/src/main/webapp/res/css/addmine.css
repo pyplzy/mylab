@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+/* 加载和提示框 */
+.loadDialog{position:absolute;top:0;left:150px;padding:0 16px;height:26px;background:url(../images/bulletin/load.png);display:none;}
+.loadDialog b{display:inline-block;margin:4px 5px 0 0;width:15px;height:14px;background:url(../images/bulletin/loading.gif);}
+.loadDialog span{color:#FFFFFF;font-weight:bold;}
+
+.pl94{ padding-left: 94px;}
+
+/* 添加附件按钮 */
+.fb_menu{color:#0088cc;border-radius:5px;}
+.fb_menu_hover{color:#FFFFFF;background:#1566B7;}
+
+/* 公告预览  */
+
+.head{overflow:hidden;border-bottom:2px solid #1566B7;height:80px;background:#FFFFFF;}
+.h_logo{width:1000px;margin:0 auto;height:80px;}
+.bd{position:absolute;left:0px;top:82px;bottom:0px;right:0px;overflow:auto;}
+.main{width:1000px;min-height:650px;margin:35px auto 40px;background:#FFFFFF;border:1px solid #D3D3D3;border-radius:3px;box-shadow:0 2px 2px 0 #E3E3E3;}
+.main-panel{padding:40px 80px;word-break:break-all;word-wrap:break-word;}
+.main-panel h3{font-size:22px;padding-bottom:1em;text-align:center;}
+.main-panel .content{padding-bottom:1em;}
+.main-panel .fileArea{padding-bottom:1em;padding-top:1em;}
+.main-panel .fileArea .fileItem{float:left;color:#555555;margin-right:15px;line-height:20px;padding-left:25px;padding-right:5px;position:relative;border:1px solid #FFFFFF;}
+.main-panel .fileArea .fileItem:hover{background:#CBE8F6;border:1px solid #70C0E7;}
+.fileIcon{width:16px;height:16px;background:url(../images/bulletin/fileicon.png) no-repeat;position:absolute;top:2px;left:5px;}
+.main-panel .fileArea .fileItem .fileSize{margin-left:2px;font-size:12px;}
+.main-panel .sign{padding-top:4em;text-align:right;padding-bottom:1em;line-height:20px;}
+
+/* 下线时间修改框 */
+.msgbox{position:absolute;width:450px;top:50%;left:50%;margin-top:-100px;margin-left:-225px;background:#FFFFFF;border:1px solid #999999;box-shadow:0 0 10px rgba(0, 0, 0, 0.5);z-index:99999;display:none;}
+.msgbox-hd{height:30px;line-height:30px;border-bottom:1px solid #C2C2C2;color:#666666;background:#EEEEEE;padding:0 10px;font-weight:bold;}
+.msgbox-title{float:left;}
+.msgbox-close{float:right;width:20px;height:20px;background:url(../images/bulletin/msgbox_close.png);margin-top:5px;cursor:pointer;}
+.msgbox-bd{color:#555555;background:#FAFAFA;}
+.msgbox-normal{padding:20px 32px;font-size:14px;font-family:'Microsoft Yahei',​verdana}
+.msgbox-fm{height:30px;}
+.msgbox-fm .label{float:left;width:130px;margin-top:3px;}
+.msgbox-fm .ipt{float:left;height:20px;border:1px solid #BBBBBB;border-radius:3px;box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;padding:3px 8px;}
+.msgbox-fm .ipt-input{width:200px;height:18px;line-height:18px;border:0 none;}
+.msgbox-ft{height:45px;background:#FAFAFA;border-top:1px solid #E1E1E1;}
+.msgbox-ft .desc{color:#999999;float:left;margin-top:20px;margin-left:32px;font-family:'Microsoft Yahei',​verdana}
+.msgbox-ft .menu{margin-top:10px;float:right;}
+.mask{position:absolute;top:0;left:0;bottom:0;right:0;opacity:0.5;filter:alpha(opacity=50);background:#FFFFFF;z-index:998;display:none;}
+.menu{float:left;height:26px;line-height:26px;border:1px solid #999999;background:url(../images/bulletin/menu.bmp);text-align:center;cursor:pointer;margin-right:10px;padding:0 15px;}
+.menu:HOVER{border:1px solid #787878;}
+
+/* 置顶  */
+.cols2 .stick{float:left;margin-top:12px;margin-right:4px;width:16px;height:16px;background:url(../images/bulletin/stick.png);}
+
+/* checkbox样式 */
+.checkbtn{ margin:15px 0 0 15px;}
+
+

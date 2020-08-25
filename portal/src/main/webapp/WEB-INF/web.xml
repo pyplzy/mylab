@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" >
+	
+	<!-- 显示名称 -->
+	<display-name>portal</display-name>
+  
+	<!-- spring启动配置 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring/root-context.xml</param-value>
+	</context-param>
+	<!-- 防止发生java.beans.Introspector内存泄露,应将它配置在ContextLoaderListener的前面 -->  
+	<!-- 详细描述见http://blog.csdn.net/jadyer/article/details/11991457 -->  
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>  
+	</listener>
+	<!-- 实例化Spring容器 -->  
+	<!-- 应用启动时,该监听器被执行,它会读取Spring相关配置文件,其默认会到WEB-INF中查找applicationContext.xml --> 
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- SpringMVC核心分发器 -->
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring/servlet-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- druid连接池监控 -->
+	<servlet>
+		<servlet-name>DruidStatView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DruidStatView</servlet-name>
+		<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping>
+  
+	<!-- ui配置（决定系统红色蓝色风格） -->
+	<servlet>
+		<servlet-name>uiLoaderServlet</servlet-name>
+		<servlet-class>usi.dbdp.portal.servlet.UiLoaderServlet</servlet-class>
+		<init-param>
+			<param-name>uiConfigLocation</param-name>
+			<param-value>classpath:ui/ui.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<!--<filter>
+	    <filter-name>springSessionRepositoryFilter</filter-name>
+	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>springSessionRepositoryFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	    <dispatcher>REQUEST</dispatcher>
+	    <dispatcher>ERROR</dispatcher>
+	</filter-mapping>-->
+  
+	<!-- 解决乱码问题 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+
+	<!-- ======================== 单点登录开始 ======================== -->
+	<!-- 用于单点退出，该过滤器用于实现单点登出功能，可选配置-->
+	<listener>
+		<listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>
+	</listener>
+	<filter>
+		<filter-name>CAS Single Sign Out Filter</filter-name>
+		<filter-class>org.jasig.cas.client.session.SingleSignOutFilter</filter-class>
+		<init-param>
+			<param-name>casServerUrlPrefix</param-name>
+			<param-value>http://192.168.52.79:48080/cas</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CAS Single Sign Out Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	 <!-- cas登录地址配置。 -->
+	<filter>
+		<filter-name>CAS Filter</filter-name>
+		<filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>
+		<init-param>
+			<param-name>casServerLoginUrl</param-name>
+			<param-value>http://192.168.52.79:48080/cas/login</param-value>
+			<!-- <param-value>http://10.119.67.113:8010/cas/login</param-value> -->
+		</init-param>
+		<init-param>
+			<param-name>serverName</param-name>
+<!--			<param-value>http://localhost:8080</param-value>-->
+			 <param-value>http://192.168.52.79:8088/</param-value>
+			<!-- <param-value>http://10.119.67.113:8011</param-value> -->
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CAS Filter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CAS Filter</filter-name>
+		<url-pattern>/</url-pattern>
+	</filter-mapping>
+	
+	<!-- 该过滤器负责对Ticket的校验工作，必须启用它 -->
+	<filter>
+		<filter-name>CAS Validation Filter</filter-name>
+		<filter-class>org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter</filter-class>
+		<init-param>
+			<param-name>casServerUrlPrefix</param-name>
+			<param-value>http://192.168.52.79:48080/cas</param-value>
+			<!-- <param-value>http://10.119.67.113:8010/cas</param-value> -->
+		</init-param>
+		<init-param>
+			<param-name>serverName</param-name>
+			<!--<param-value>http://localhost:8080</param-value>-->
+			 <param-value>http://192.168.52.79:8088/</param-value>
+			<!-- <param-value>http://10.119.67.113:8011</param-value> -->
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CAS Validation Filter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CAS Validation Filter</filter-name>
+		<url-pattern>/</url-pattern>
+	</filter-mapping>
+ 
+	<!--
+		该过滤器负责实现HttpServletRequest请求的包裹，
+		比如允许开发者通过HttpServletRequest的getRemoteUser()方法获得SSO登录用户的登录名，可选配置。
+		-->
+	<filter>
+		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+		<filter-class>org.jasig.cas.client.util.HttpServletRequestWrapperFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+		<filter-mapping>
+		<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+		<url-pattern>/</url-pattern>
+	</filter-mapping>
+ 
+	<!--
+		该过滤器使得开发者可以通过org.jasig.cas.client.util.AssertionHolder来获取用户的登录名。
+		比如AssertionHolder.getAssertion().getPrincipal().getName()。
+		-->
+	<filter>
+		<filter-name>CAS Assertion Thread Local Filter</filter-name>
+		<filter-class>org.jasig.cas.client.util.AssertionThreadLocalFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CAS Assertion Thread Local Filter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CAS Assertion Thread Local Filter</filter-name>
+		<url-pattern>/</url-pattern>
+	</filter-mapping>
+	<!-- ======================== 单点登录结束 ======================== -->
+	
+	<!-- 菜单非法访问过滤器，如果menuFilter为false意为关闭过滤菜单权限过滤。放在cas后，还有初始化session的作用 -->
+	<context-param>
+		<param-name>menuFilter</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<filter>
+		<filter-name>MenuAccessFilter</filter-name> 
+		<filter-class>usi.dbdp.portal.filter.MenuAccessFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MenuAccessFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>	
+	
+  
+	<!-- session N分钟超时 -->
+	<!-- 
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	 -->
+
+	<!-- 404 500 Throwable 基于安全考虑（已由nginx实现）
+	<error-page> 
+		<error-code>500</error-code> 
+		<location>/WEB-INF/views/500.jsp</location> 
+	</error-page>
+	<error-page> 
+		<error-code>404</error-code> 
+		<location>/WEB-INF/views/404.jsp</location> 
+	</error-page>
+	<error-page>  
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/WEB-INF/views/500.jsp</location>  
+	</error-page> 
+	-->		
+</web-app>

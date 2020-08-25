@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* CSS Document */
+.layui-layer{ border-radius:10px;border: solid 1px #26a9fc;border-top:solid 3px #26a9fc; }
+.layui-layer .layui-layer-title{ background-color:#e6e6e6; color:#333; font-size:14px;border-radius:10px 10px 0 0;}
+.layui-layer-ico{ background:url(../../../../images/close.png) no-repeat;}
+.layui-layer-setwin .layui-layer-close1{ background-position:0 0;}
+.layui-layer-setwin .layui-layer-min,.layui-layer-setwin .layui-layer-max{ display:none;}
+.layui-layer-btn{ text-align:center;}

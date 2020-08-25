@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!--加载配置文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!--加载配置文件 -->
+	<!--<bean id="propertyPlaceholderConfigurer" class="usi.dbdp.portal.app.util.EncryptablePropertyPlaceholderConfigurer">
+	    <property name="locations">
+	        <list>
+	            <value>classpath:jdbc.properties</value>
+	            <value>classpath:redis.properties</value>
+	        </list>
+	    </property>
+	</bean>-->
+	
+	<context:component-scan base-package="usi.*" use-default-filters="false">
+		<!-- 根据数据库类型扫描不同注解的dao实现类 -->
+		<!-- <context:include-filter type="annotation" expression="usi.common.annotation.MysqlDb" /> -->	
+<!-- 		<context:include-filter type="annotation" expression="usi.common.annotation.Db2Db" /> -->
+		<context:include-filter type="annotation" expression="usi.common.annotation.OracleDb" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+	<!--扫描注解：工具包 -->
+    <context:component-scan base-package="usi.dbdp.portal.util" />
+    
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<!-- 基本属性 driverClassName、url、username、password -->
+		<property name="driverClassName" value="${jdbc.driverClassName}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<!-- 配置初始化大小、最小、最大 -->
+		<property name="initialSize" value="${druid.initialSize}"></property>
+		<property name="minIdle" value="${druid.minIdle}"></property>
+		<property name="maxActive" value="${druid.maxActive}"></property>
+		<!-- 配置获取连接等待超时的时间 -->
+		<property name="maxWait" value="${druid.maxWait}"></property>
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="${druid.timeBetweenEvictionRunsMillis}"></property>
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="${druid.minEvictableIdleTimeMillis}"></property>
+		<!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+		<property name="poolPreparedStatements" value="${druid.poolPreparedStatements}"></property><!-- 
+			如果使用mysql，则建议设置为fasle -->
+		<property name="maxOpenPreparedStatements" value="${druid.maxOpenPreparedStatements}"></property>
+		<property name="testOnBorrow" value="${druid.testOnBorrow}"></property>
+		<property name="testOnReturn" value="${druid.testOnReturn}"></property>
+		<property name="testWhileIdle" value="${druid.testWhileIdle}"></property>
+		<property name="validationQuery" value="${druid.validationQuery}"></property>
+		<!-- 配置监控统计拦截的filters -->
+		<property name="filters" value="${druid.filters}"></property>
+	</bean>
+
+	<!-- 配置jdbcTemplate -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!--事务管理器 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="txManager" />
+	
+	<!-- 下面是spring session的相关配置 -->
+	<!--<bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration" />
+	
+	<bean id="lettuceConnectionFactory" class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory">
+	    <property name="hostName" value="${redis.host}" />
+	    <property name="port" value="${redis.port}" />
+	    <property name="database" value="${redis.dbIndex}" />-->
+<!-- 	<property name="password" value="${redis.pass}" />
+	    <property name="timeout" value="${redis.timeout}" />
+-->
+<!--
+	</bean>
+-->
+
+	<!--<bean id="sessionRepository" class="org.springframework.session.data.redis.RedisOperationsSessionRepository">
+        <constructor-arg ref="lettuceConnectionFactory" />
+	    <property name="defaultMaxInactiveInterval" value="1800" />
+	</bean>-->
+	
+	<!--<bean class="org.springframework.session.web.http.DefaultCookieSerializer">
+	    <property name="cookieName" value="jsessionid" />
+	    <property name="cookiePath" value="/" />
+	</bean>-->
+	
+	<!-- 线程池,工作队列为空,当有任务需要执行而核心线程已用完则会直接创建新线程 -->
+	<bean id="threadPoolTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="rejectedExecutionHandler">
+     		<bean class="java.util.concurrent.ThreadPoolExecutor$DiscardPolicy" />
+		</property>
+		<property name="corePoolSize" value="5" />
+		<property name="maxPoolSize" value="500" />
+		<property name="queueCapacity" value="0" />
+	</bean>
+</beans>

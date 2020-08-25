@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+.border{ padding:0; border:1px solid #ebebeb;}
+.leftArea{ float:left; width:240px; border-right:1px solid #ebebeb; overflow:hidden;}
+.rightArea{ float:right; width:562px; overflow:hidden;}
+.titleN{ padding-left:12px; height:39px; line-height:39px; border-bottom:1px solid #ebebeb; background:#f2f2f2; font-size:14px; font-weight:bold;}
+.leftArea .titleN span{ float:left;}
+.leftArea .content{ padding:5px; height:510px; overflow-y:auto; overflow-x:hidden;}
+.selectWrap{ float:left; margin-left:10px; margin-top:4px;}
+/* .rightArea .content{ padding:25px 10px;} 
+.rightArea .content dt{ width:130px;}
+.rightArea .content dd .txtInput{ width:360px;}
+.rightArea .content dd .textArea{ width:360px;}
+.rightArea .content dd label{ height:30px; line-height:30px; margin-right:10px; cursor:pointer;}
+.rightArea .content dd label input{ margin:0 2px;} */

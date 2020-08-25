@@ -1,0 +1,225 @@
+@charset "utf-8";
+
+/* 顶部 */
+.w980{ width:980px;}
+.hide{ display:none;}
+.top{ height:24px; line-height:24px; background:#d9d9d9; border-bottom:1px solid #bfbfbf; color:#666;font-family:"微软雅黑";}
+.top .w980{ margin:0 auto;}
+.top .right a{ margin-left:20px; color:#666; text-decoration:none;}
+.top .right a .down{ display:inline-block; margin-left:3px; width:8px; height:6px; background:url(../images/icon_images.png) 0 -45px no-repeat;}
+
+/* 头部 */
+.header{ position:relative; height:90px; margin:0 auto;}
+.header .logo{ margin-top:10px;}
+.header .logo .logo_span{ margin:32px 0 0 5px; font-size:24px; font-family:"微软雅黑";}
+.header .search{position:absolute; top:34px; right:0; z-index:8;}
+.header .search .schInput{ padding:5px 10px; width:300px; height:22px; line-height:22px; border:1px solid #ccc; font-size:12px; color:#999;}
+/*.header .search .borderclor{ border-color:#fa6567;}*/
+.header .search .bbff{ border-color:#fa6567; border-bottom:none; background:url(../images/sch_bg.png) repeat;}
+.header .search .schInput:focus{ border-color:#fa6567;}
+.header .search .schbtn{ position:absolute; right:2px; top:5px; border:none; cursor:pointer; background-color:#fff;}
+.header .search .schbtn i{ display:block; width:25px; height:25px;background:url(../images/icon_search.png) no-repeat;}
+.single{ margin-top:5px; width:100%; height:2px; background:#eb1b28;}
+.hdTitle{ margin-bottom:10px; height:38px; line-height:38px; border-bottom:2px solid #f2f2f2;}
+.hdTitle span{ display: inline-block; padding:0 40px;font-size:18px; color:#e33639;}
+
+/* 搜索结果 */
+.schwidth{ width:280px;}
+.searchcont{ position:absolute; right:0px; top:66px; height:380px; padding:10px 20px; border:1px solid #fa6567;background:url(../images/sch_bg.png) repeat; z-index:7;}
+.schresult{ position:absolute; right:20px;}
+.schhd{ padding:0 10px; line-height:28px; color:#333; font-weight:bold; font-size:14px; font-family:"新宋体"; border-bottom:1px solid #d9d9d9;}
+.schhd span{ font-size:12px; font-weight:normal; color:#999;}
+.schhd span b{ color:#ff6000;}
+
+.pcont{ position:absolute; height:350px; overflow:auto;}
+.pcont li{ height:40px; border-bottom:1px solid #e6e6e6;}
+.liwrap{ position:relative; padding:0 20px;/* width:239px;*/ height:36px; line-height:36px; border:2px solid #fafafa; background-color:#fafafa;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+.liwraphov{border-color:#fde8bc; background-color:#fde8bc; cursor:pointer;}
+.liactive{ border-color:#f14e51; background:url(../images/icon_check_2.png) bottom right #fff9ec no-repeat;}
+.liwrap .name{ margin-right:6px; font-size:14px; color:#333;}
+.liwrap .department{ line-height:24px; color:#999; font-family: "微软雅黑";}
+.liactive .department{ color:#fa6567;}
+.liactive .name{ font-weight:bold;}
+
+.pdetail{ display:none; position:absolute; left:20px; width:600px;}
+.lfph{ float:left; margin-top:15px; width:100px; text-align:center; font-size:14px; color:#333;}
+.lfph .department{ color:#999;}
+.infm{ text-align:center; color:#666; font-size:14px;}
+.infm .photo{ margin:0 auto; width:100px; height:100px; overflow:hidden;}
+.infmdetail{ margin-top:15px; width:460px;}
+.infmdetail dl{ margin-bottom:7px;}
+.infmdetail dt{ width:80px;}
+.infmdetail .txtInput{ width:350px;}
+
+/* nav 导航菜单 */
+.nav{ position:relative; background:#c71e21;}
+.navs{height: 40px; margin:0 auto; clear: both;}
+.navs .menu{float: left; height: 40px;}
+.navs .menu .menuParent{float: left; text-align: center; }
+.navs .menu .menuParent .menuParentA{display: block; min-width:120px;  height: 40px; line-height: 40px; text-align:center; font-family:"微软雅黑"; font-size: 18px; color:#f4c8c9; text-decoration: none;}
+.navs .menu .menuParent:hover .menuParentA{height:40px;background: #f0840e; color:#fff;}
+.navs .menu .menuParent .menuParentA.active{ height:40px;background: #f82936; color:#fff;}
+
+/* 底部 */
+.footer{height:30px; font-family:"微软雅黑"; text-align:center;line-height:30px;color:#fff; background:#595959;}
+
+.main{ margin:10px auto; font-family:"微软雅黑"; overflow:hidden;}
+
+/* 公告管理 */
+.main .leftWrap{ float:left; width:160px; margin-left:3px; margin-bottom: -10000px; padding-bottom: 10000px;}
+.main .leftWrap .lf_menu{ height:460px; background:#fafafa; border:1px solid #ebebeb; }
+.main .rightWrap{ float:right; width:805px; height: 100%; margin-bottom: -10000px;  /* position:relative;*/ padding-bottom: 10000px;}
+.main .leftWrap ul{}
+.main .leftWrap ul a{ display: block;}
+.main .leftWrap ul a:hover{text-decoration: none;}
+.main .leftWrap li{ position:relative;font-size: 14px;line-height: 40px; height: 40px; cursor: pointer;color: #666;}
+.main .leftWrap li a{ position:relative; padding-left:20px;height: 40px;text-decoration: none;}
+.main .leftWrap .on a{color: #333;background: #e6e6e6;}
+.main .leftWrap .on i{ display:inline-block; position:absolute; top:0; left:-3px; width:3px; height:40px; background:#ef2533; z-index:6;}
+.main .leftWrap .menuItem:hover a{background: #f2f2f2;}
+.main .leftWrap .on:hover a{background:#e6e6e6;}
+
+/* 应用管理——增加弹窗 */
+.mask,.mask1{ display:none; overflow:hidden; position:absolute; left:0; top:0px; overflow:hidden; background:#000;opacity:.3;-moz-opacity:.3;filter:alpha(opacity=30); z-index:8;}
+.mask1{ z-index:99;}
+.popWrap,.popWrap1,.popwapAdd{ display:none;position:fixed; padding:10px; width:530px; height:624px; top:50%; left:50%; margin-top:-322px; margin-left:-275px; font-family:"微软雅黑"; background:#fff; border:1px solid #b3b3b3; border-radius:6px; box-shadow:0 0 8px rgba(0, 0, 0, 0.2); z-index:9;}
+.titleName{ padding:0 15px; height:30px; font-size:18px;}
+.titleName .icon_close,.titleName .icon_close1{ display:block; margin-top:5px; width:16px; height:16px; background:url(../images/icon_images.png) -13px -64px no-repeat; cursor:pointer;}
+
+.popWrap .cont{ padding:10px 0;}
+.popWrap .cont .appimg{ height:86px; margin-bottom:10px;}
+.popWrap .cont .icon_img{ display:inline-block; float:left; margin-left:10px; width:84px; height:84px; background:#fff; border:1px dashed #d0d0d0; border-radius:5px;}
+.popWrap .cont .appimg label{ float:left; width:130px; font-size:14px; text-align:right; line-height:86px;}
+.popWrap .cont .appimg a{ margin-top:28px; margin-left:10px;}
+.popWrap .cont .appimg img{ width:66px; height:66px; margin:9px;}
+.popWrap .cont dt{ width:130px;}
+.popWrap .cont dd{ margin-left:6px;}
+.popWrap .cont dd input{ width:300px;}
+.mt5{ margin-top:5px;}
+.popWrap .cont dd label{ height:30px; line-height:30px; margin-right:10px; cursor:pointer;}
+.popWrap .cont dd label input{ width:20px; margin:0 3px;}
+
+.other{ width:640px; height:410px; margin-top:-215px; margin-left:-330px; z-index:999;}
+.popWrap .cont li{ float:left; margin:5px;}
+.popWrap .cont li .imgBox{ width:94px; height:94px; background:#fff; border:1px dashed #d0d0d0;border-radius:6px; overflow:hidden; cursor:pointer;}
+.popWrap .cont li .imgBox.boxhov{ width:92px; height:92px; border:2px solid #f14e51; background:url(../images/icon_check.png) right bottom no-repeat #fff9ec;}
+.popWrap .cont li .imgBox.boxhov img{ margin:13px;}
+.popWrap .cont li .imgBox img{ width:66px; height:66px; margin:14px;}
+.bottom{ margin-top:10px; text-align:center;}
+
+.popImg{height:600px; margin-top:-300px;}
+
+
+.other1{ width:490px; height:280px; margin-top:-145px; margin-left:-250px; }
+.other1 .cont{ padding:25px 0;}
+.pwdtips{ width:100%; text-align:center; color:#f00; font-size:14px;}
+
+/* 系统管理——角色管理——新建角色弹窗 */
+.other2{ width:500px; height:320px; margin-top:-160px; margin-left:-255px;}
+.other2 dd{ width:316px;}
+.h450{ height:450px;}
+.contpage .page{margin:10px auto;}
+.popWrap .conto{ padding:10px 0;}
+.popWrap .conto dt{ width:130px;}
+.popWrap .conto dd input{ width:300px;}
+.popWrap .conto dd label{cursor: pointer; height: 30px; line-height: 30px; margin-right: 10px;}
+.popWrap .conto dd label input{ margin: 0 3px; width: 20px;}
+
+
+/* 修改密码 */
+.pwd_normal,.pwd_weak,.pwd_more,.pwd_strong{ display:block; width:242px; height:23px; background:url(../images/icon_pwd.png) no-repeat;}
+.pwd_normal{ background-position:0 -1px;}
+.pwd_weak{ background-position:0 -33px;}
+.pwd_more{ background-position:0 -66px;}
+.pwd_strong{ background-position:0 -99px;}
+
+/* 系统管理——修改帐号、授予角色弹窗 */
+.edit{width:720px; height:360px; margin-top:-185px; margin-left:-365px;}
+.hdnew{ padding:0 10px; line-height:30px; border-bottom:1px solid #d5d6d7; font-size:14px; font-weight:bold;}
+.basecont{ padding:10px 0;}
+.baseItem{ float:left; margin-bottom:6px;}
+.baseItem label{ display:block; float:left; width:100px; line-height:30px; font-size:14px; text-align:right;}
+.baseItem .txtInput{ margin-left:6px; width:200px;}
+.mod{ float:left; margin-left:6px;}
+.w216{ width:216px;}
+.baseItem .w170{ width:130px;}
+.baseItem a{ color:#0088cc;}
+.popbtm{ float:left; margin-top:10px; width:100%; text-align:center;}
+
+.queryWrap1{ margin:5px 0;}
+.queryWrap1 dl{ width:200px;}
+.edit1 .cont dl dt{ width:60px;}
+.queryWrap1 dl dd{ width:120px;}
+.queryWrap1 dl dd .txtInput{ width:120px;}
+.edit1{width:720px; height:450px; margin-top:-220px; margin-left:-365px;}
+.edit1 .page{ margin:15px auto;}
+
+.onyes{ display:block; width:55px; height:24px; background:url(../images/icon_on_off.png) 0 0 no-repeat;}
+.offno{ background-position:0 -24px;}
+.baseItem .w526{ margin-left:6px; width:526px;}
+
+.cont1{ padding:10px 0;}
+.one .txtInput{ width:130px;}
+.one label{ width:60px;}
+.ml20{ margin-left:20px;}
+.jigouWrap{ display:none; position:absolute; top:110px; left:75px; width:200px; height:350px; border:1px solid #ccc;  background:#fff; overflow-y:auto; z-index:9999}
+
+
+.popWrap .conto dd .txtInput{ width:300px;}
+.book{ width:680px; height:460px; margin-top:-230px;}
+.w316{ width:316px;}
+
+/************用于解决弹窗中的下拉框高度问题，应将height设置为li的字体高度******************************/
+.dropdown li {height: 12px;}
+
+/******************机构数据权限************************/
+.queryWrapForUserOrg{ padding:25px 0 0;}
+.queryWrapForUserOrg dl{ margin-right:10px; margin-bottom:0; width:320px;}
+.queryWrapForUserOrg dl dt{ width:70px; text-align:right;}
+.queryWrapForUserOrg dl dd{ width:240px;}
+.queryWrapForUserOrg dl dd .txtInput{ width:220px;}
+.orgDataWap {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    display: none;
+    height: 350px;
+    left: 95px;
+    overflow-y: auto;
+    position: absolute;
+    width: 250px;
+    z-index: 9999;
+}
+/******************机构数据权限添加机构人员关系窗口************************/
+.orgDataWapAdd {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    display: none;
+    height: 200px;
+    left: 146px;
+    overflow-y: auto;
+    position: absolute;
+    top: 92px;
+    width: 316px;
+    z-index: 9999;
+}
+.contAdd{ padding: 25px 0;}
+.contAdd dt{ width:130px;}
+.contAdd dd{ margin-left:6px;}
+.contAdd dd input{ width:300px;}
+.orgDataWapAdd ul li{margin:5px;}
+
+.msgDialogForUserOrg {
+    background-color: #f0840e;
+    color: #ffffff;
+    display: none;
+    font-weight: bold;
+    height: 26px;
+    left: 50%;
+    line-height: 26px;
+    margin-left: -100px;
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    width: 200px;
+    z-index: 999;
+

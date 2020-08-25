@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN"><!-- status="off" 表示自己控制日志输出 monitorInterval="120" 每120秒检查配置文件变化-->
+    <properties>
+        <!-- File base path -->
+        <property name="LOG_HOME">../logs</property><!--tomcat的话，就是bin目录同级的地方，正好有个logs，其他容器类似 -->
+        <!-- App server name -->
+        <property name="SERVER_NAME">PORTAL</property>
+        <!-- Backup file path -->
+        <property name="BACKUP_HOME">{LOG_HOME}/backup</property>
+    </properties>
+
+    <appenders>
+        <!-- Console -->
+        <Console name="Console" target="SYSTEM_OUT">
+           	<!-- 
+			<PatternLayout pattern="[bds][%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %logger{36} - %msg%n" />
+           	-->
+           	<PatternLayout pattern="[%d][%p][%t][%r][%l] %m%n"/>
+            <!-- <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/> -->
+        </Console>
+
+        <!--Appender 2. 输出到滚动保存的文件, 触发保存日志文件的条件是日志文件大于SizeBasedTriggeringPolicy，只保存最新的10个日志-->
+        <RollingFile name="ROLLINGFILE" fileName="${LOG_HOME}/${SERVER_NAME}_trace.log" filePattern="${LOG_HOME}/${SERVER_NAME}_trace-%i.log">
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="[%d][%p][%t][%r][%c][%l]%n        %m%n" />
+            <SizeBasedTriggeringPolicy size="200MB" />
+            <!-- DefaultRolloverStrategy 中的参数max，可以限制 SizeBasedTriggeringPolicy中size超出后，只保留max个存档-->
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+    </appenders>
+
+    <loggers>
+        <!-- Spring Loggers -->
+        <logger name="com.alibaba.druid" level="warn"/>
+        <logger name="org.springframework" level="warn"/>
+        <logger name="druid.sql" level="warn"/>
+        <logger name="org.mybatis.spring" level="warn"/>
+        <!-- <logger name="org.jasig.cas.client" level="trace"/> -->
+
+        <!-- Root Logger -->
+        <root level="info">
+            <appender-ref ref="Console"/>
+            <!-- <appender-ref ref="ROLLINGFILE"/> -->
+        </root>
+    </loggers>
+</configuration>

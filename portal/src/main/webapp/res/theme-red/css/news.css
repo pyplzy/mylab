@@ -1,0 +1,40 @@
+/* 新闻页面 */
+
+.main{ margin:20px auto; font-family:"微软雅黑"; overflow:hidden;}
+.w980{ width:980px;}
+.hide{ display:none;}
+
+.newsTitle{ margin-top:10px; width:100%; text-align:center; font-size:30px; font-family:"微软雅黑";}
+.newsDetail{ line-height:50px; border-bottom:1px solid #d0d0d0; color:#666;text-align:center; position: relative;}
+.newsDetail span{ margin-right:20px;}
+
+.newsDetail .reply{ position:absolute;top:0;right:0; height:50px;line-height: 50px;}
+.newsDetail .reply a{ padding-left:25px; margin-left:10px; height:18px; color:#808080; font-size:14px; background:url(../images/icon_detail.png) no-repeat;}
+.newsDetail .reply a:hover{ color:#f0840e;}
+.newsDetail .reply .icon_rep{ background-position:0 0;}
+.newsDetail .reply .icon_bb{ background-position:0 -24px;}
+.newsDetail .reply .icon_rep:hover{ background-position:0 -48px;}
+.newsDetail .reply .icon_bb:hover{ background-position:0 -73px;}
+
+.att,.hline{ display:block; float:left; margin-top:10px; width:24px; height:18px; background: url(../images/icon_detail.png) 0 -24px;}
+.hline{ margin-right:5px; width:5px; height:18px; background-position:0 -102px;}
+.cont{ padding:25px 0; font-size:14px; color:#333;}
+.cont p{ line-height:26px; text-indent:30px;}
+.cont img {max-width: 980px;}
+.cont .subtitle{ margin:25px 30px; padding:0}
+.cont .subtitle h3{ font-weight:bold;}
+.repWrap{ margin-bottom:15px; border-top:1px solid #dbdcdc;}
+.repWrap .hd{ padding:0 20px; height:38px; line-height:38px; font-size:14px; font-weight:bold; border:1px solid #dbdcdc; background:#f2f2f2;}
+.repWrap .bdbnone{ border-bottom:none;} 
+.repWrap .hd span{ margin-left:10px; font-weight:normal; font-size:12px;}
+.repWrap .hd a{ font-size:12px; font-weight:normal; color:#336699;}
+.repWrap .cont{ position:relative; border:1px solid #dbdcdc; border-top:none; z-index:1;padding: 0;}
+.repWrap .bordernone{ border:none;}
+.repnews{ width:94%; margin:0 auto; font-family:"新宋体";}
+.repnews .items{ padding-top:15px; border-bottom:1px solid #d7d7d7;}
+.repnews .items .author{ line-height:20px;}
+.repnews .items .detail{ padding:10px 0; color:#333; font-size:14px;}
+.author .left{ color:#000;}
+.author .left span{ color:#666;}
+.author .right{ color:#999;} 
+.write{padding:5px 0; width:100%; min-height:88px; color:#999; text-indent:10px; border:0; background:none; resize:none; z-index:9999;}
